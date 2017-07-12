@@ -328,9 +328,12 @@ def decode_label_dict(row):
     result = {}
     for key, val in row.items():
         if key == 'category':
-            result[key] = dict((c, int(n))
-                for c, n in [re.match('^([^(]*)\(([^)]*)\)$', f).groups()
-                    for f in val.split(';')])
+            try:
+                result[key] = dict((c, int(n))
+                    for c, n in [re.match('^([^(]*)\(([^)]*)\)$', f).groups()
+                        for f in val.split(';')])
+            except AttributeError, e:
+                result[key] = dict((['no_category', 'all_categories'],['1,0']))
         elif key == 'name':
             result[key] = val
         elif key == 'syns':
