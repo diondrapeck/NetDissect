@@ -99,9 +99,9 @@ def tallyLabels(data1, data2, minlength=None, maxlength=None, out=None,
             2, values=pixelcount, axis=1)[1:])
 
     # STEP 2: scalar * data, data * scalar. Tally each label indepdently
-    count1 = numpy.bincount(label1.ravel())
+    count1 = numpy.bincount(numpy.asarray(label1.ravel(), dtype=int))
     count1[:1] = 0
-    count2 = numpy.bincount(label2.ravel())
+    count2 = numpy.bincount(numpy.asarray(label2.ravel(), dtype=int))
     count2[:1] = 0
     # Which indexes are present?
     index1 = count1.nonzero()[0]
