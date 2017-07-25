@@ -1,19 +1,9 @@
-"""
-Splits a list of convolutional layers of a deep CNN into triplets that are then evaluated using Network Dissection
-
-Args: 
-    model: the neural network to be evaluated, caffemodel and prototxt found in NetDissect/zoo
-    input_file: a text file listing the names of the convolutional layers of the network, separated by spaces
-    dataset: the dataset to be passed through the network, found in NetDissect/dataset
-
-"""
-
 import sys, os
 import subprocess
 import shlex
 
 if len(sys.argv) != 4:
-    print "This script requires three command line arguments: model, input_file, and dataset"
+    print "This script requires three command line arguments: a model name, a .txt file listing convolutional layers, and a dataset name"
 else:
     models = {"googlenet": 'googlenet_mil-type_adagrad-lr_policy_fixed-iter_400000', "alexnet": 'caffe_reference_places365'}
     model = models[sys.argv[1]]
