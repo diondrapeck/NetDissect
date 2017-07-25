@@ -217,9 +217,15 @@ def accumulate_counts(masks, label_list, tally_i, unit_size, labelcat):
             scalars.append(label_group)
         else:
             pixels.append(label_group)
+<<<<<<< HEAD
     labels = (numpy.concatenate(pixels) if pixels else numpy.array([]), numpy.concatenate(scalars) if scalars else numpy.array([]))
     labels = numpy.asarray(labels, dtype=int)
     f expand("%") == ""|browse confirm w|else|confirm w|endif
+=======
+    labels = (
+        numpy.concatenate(pixels) if pixels else numpy.array([], dtype=int),
+        numpy.concatenate(scalars) if scalars else numpy.array([], dtype=int))
+>>>>>>> 42241df0107c1bed23f818e4be509f85bc424cd5
     intersect.tallyMaskLabel(masks, labels, out=tally_i)
 
 def primary_categories_per_index(ds, categories):
