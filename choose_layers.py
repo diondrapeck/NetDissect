@@ -1,3 +1,15 @@
+"""
+Splits a list of a CNN's convolutional layers into triplets that are then evaluated via Network Dissection
+
+Args:
+    model: The convolutional neural network to be evaluated, caffemodel and prototxt should be in NetDissect/zoo
+    input_file: A text file listing the convolutional layers of a CNN, each separated by a space
+    dataset: The dataset to be passed through "model", should be in NetDissect/dataset
+Returns:
+    Begins running Network Dissection on each layer in the background using nohup
+    Prints "nohup: ignoring input and appending output to 'nohup.out'" to the shell
+
+"""
 import sys, os
 import subprocess
 import shlex
